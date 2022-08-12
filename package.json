@@ -38,9 +38,12 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "unbuild",
-    "dev": "unbuild --stub",
-    "start": "esmo src/index.ts",
+    "dev": "nest start --watch",
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "start": "nest start",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
     "test": "vitest",
     "lint": "run-p lint:*",
     "lint:build": "tsc --noEmit",
@@ -55,6 +58,7 @@
   "dependencies": {
     "@nestjs/common": "^9.0.9",
     "@nestjs/core": "^9.0.9",
+    "@nestjs/platform-express": "^9.0.9",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.5.6"
   },
@@ -72,6 +76,7 @@
     "npm-run-all": "^4.1.5",
     "pnpm": "^7.9.0",
     "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
     "typescript": "^4.7.4",
     "unbuild": "^0.7.6",
     "vite": "^2.9.14",
