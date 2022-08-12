@@ -1,22 +1,23 @@
 {
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true,
-    "editor.formatOnSave": true,
-    "cSpell.words": [
-        "antfu",
-        "bumpp",
-        "esmo",
-        "esno",
-        "pnpm",
-        "typecheck",
-        "vite",
-        "vitest"
-    ],
-    "typescript.tsdk": "node_modules/typescript/lib",
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "cSpell.words": [
+    "antfu",
+    "bumpp",
+    "esmo",
+    "esno",
+    "nestjs",
+    "pnpm",
+    "typecheck",
+    "vite",
+    "vitest"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
 }

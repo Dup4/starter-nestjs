@@ -1,18 +1,18 @@
 {
-  "name": "@dup4/starter-ts",
-  "version": "0.0.1",
+  "name": "@dup4/starter-nestjs",
+  "version": "0.0.0",
   "packageManager": "pnpm@7.1.7",
   "description": "",
   "keywords": [],
-  "homepage": "https://github.com/Dup4/starter-ts#readme",
+  "homepage": "https://github.com/Dup4/starter-nesjt#readme",
   "bugs": {
-    "url": "https://github.com/Dup4/starter-ts/issues"
+    "url": "https://github.com/Dup4/starter-nesjt/issues"
   },
   "license": "MIT",
   "author": "Dup4 <lyuzhi.pan@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Dup4/starter-ts.git"
+    "url": "git+https://github.com/Dup4/starter-nesjt.git"
   },
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
@@ -67,5 +67,11 @@
     "unbuild": "^0.7.4",
     "vite": "^2.9.9",
     "vitest": "^0.7.13"
+  },
+  "dependencies": {
+    "@nestjs/common": "^9.0.9",
+    "@nestjs/core": "^9.0.9",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.5.6"
   }
 }
