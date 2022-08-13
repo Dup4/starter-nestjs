@@ -1,5 +1,5 @@
 import path from "path";
-
+import { json } from "express";
 import { NestFactory } from "@nestjs/core";
 import {
   SwaggerModule,
@@ -10,11 +10,13 @@ import { NestExpressApplication } from "@nestjs/platform-express";
 import { Logger } from "@nestjs/common";
 
 import { AppModule } from "./app.module";
-import packageInfo from "../package.json";
+import packageInfo from "./package.json";
+import { ConfigService } from "./config/config.service";
 
-const GlobalPrefix = "api";
-
-async function initSwaggerDocument(app: NestExpressApplication) {
+async function initSwaggerDocument(
+  configService: ConfigService,
+  app: NestExpressApplication,
+) {
   const config = new DocumentBuilder()
     .setTitle(packageInfo.name)
     .setDescription(packageInfo.description)
@@ -28,15 +30,51 @@ async function initSwaggerDocument(app: NestExpressApplication) {
   };
 
   const document = SwaggerModule.createDocument(app, config, options);
-  SwaggerModule.setup(path.join(GlobalPrefix, "docs"), app, document);
+  SwaggerModule.setup(
+    path.join(configService.config.server.globalAPIPathPrefix, "docs"),
+    app,
+    document,
+  );
+}
+
+async function initialize(): Promise<
+  [configService: ConfigService, app: NestExpressApplication]
+> {
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
+    ...(process.env.NODE_ENV === "production"
+      ? { logger: ["log", "warn", "error"] }
+      : {}),
+  });
+
+  const configService = app.get(ConfigService);
+
+  app.setGlobalPrefix(configService.config.server.globalAPIPathPrefix);
+  app.use(json({ limit: "1024mb" }));
+  app.set("trust proxy", configService.config.server.trustProxy);
+
+  initSwaggerDocument(configService, app);
+
+  return [configService, app];
+}
+
+async function startApp(
+  configService: ConfigService,
+  app: NestExpressApplication,
+) {
+  await app.listen(
+    configService.config.server.port,
+    configService.config.server.hostname,
+  );
+
+  Logger.log(
+    `${packageInfo.name} is listening on ${configService.config.server.hostname}:${configService.config.server.port}`,
+    "Bootstrap",
+  );
 }
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  initSwaggerDocument(app);
-  await app.listen(3000);
-
-  Logger.log(`${packageInfo.name} is listening on 3000`, "Bootstrap");
+  const [configService, app] = await initialize();
+  startApp(configService, app);
 }
 
 bootstrap().catch((err) => {

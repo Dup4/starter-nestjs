@@ -7,8 +7,10 @@
     "bumpp",
     "esmo",
     "esno",
+    "Minio",
     "nestjs",
     "pnpm",
+    "recaptcha",
     "typecheck",
     "vite",
     "vitest"

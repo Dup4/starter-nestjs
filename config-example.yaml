@@ -1,0 +1,46 @@
+server:
+  hostname: 0.0.0.0
+  port: 3000
+  trustProxy:
+    - loopback
+  clusters: 2
+services:
+  database:
+    type: mariadb
+    host: 127.0.0.1
+    port: 3306
+    username: starter-nestjs
+    password: PASSWORD
+    database: starter-nestjs
+    timezone: +08:00
+  minio:
+    endpoint: https://files.starter-nestjs.test
+    accessKey: ADMIN
+    secretKey: PASSWORD
+    bucket: starter-nestjs-files
+  redis: redis://127.0.0.1:6379
+  mail:
+    address: admin@starter-nestjs.test
+    transport: smtp://admin@starter-nestjs.test:password@127.0.0.1:587?pool=true&tls.rejectUnauthorized=false
+security:
+  sessionSecret: don't leak this
+  recaptcha:
+    secretKey: null
+    useRecaptchaNet: false
+    proxyUrl: null
+  crossOrigin:
+    enabled: true
+    whiteList:
+      - https://starter-nestjs.test
+  rateLimit:
+    maxRequests: 200
+    durationSeconds: 10
+preference:
+  siteName: Starter NestJS
+eventReport:
+  telegramBotToken: null
+  telegramApiRoot: null
+  sentTo: "@example"
+  proxyUrl: null
+vendor:
+  ip2region: null
