@@ -1,4 +1,4 @@
-import { cpus } from "os";
+import os from "os";
 import cluster from "cluster";
 
 import { Injectable, Inject, forwardRef } from "@nestjs/common";
@@ -30,15 +30,14 @@ export class ClusterService {
     this.isWorker = cluster.isWorker || !this.enabled;
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   async initialization(workerCallback: () => Promise<void>) {
     if (this.isWorker) {
       await workerCallback();
       return;
     }
 
-    // Master -- create workers
-    const count = this.configService.config.server.clusters || cpus().length;
+    // Primary -- create workers
+    const count = this.configService.config.server.clusters || os.cpus().length;
     for (let i = 0; i < count; i++) {
       cluster.fork();
     }
@@ -57,7 +56,6 @@ export class ClusterService {
   /**
    * If cluster is not enabled, the channel's callback will be called directly.
    */
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   postMessageToPrimary<T>(channel: string, data: T) {
     const message = {
       channel,
@@ -71,7 +69,6 @@ export class ClusterService {
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   onMessageFromWorker<T>(channel: string, callback: (data: T) => void) {
     if (!this.messageListeners.has(channel)) {
       this.messageListeners.set(channel, []);
