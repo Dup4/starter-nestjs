@@ -1,4 +1,6 @@
 import path from "path";
+import cluster from "cluster";
+
 import { json } from "express";
 import { NestFactory } from "@nestjs/core";
 import {
@@ -8,10 +10,15 @@ import {
 } from "@nestjs/swagger";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Logger } from "@nestjs/common";
+import getGitRepoInfo from "git-repo-info";
+import dayjs from "dayjs";
 
 import { AppModule } from "./app.module";
 import packageInfo from "./package.json";
 import { ConfigService } from "./config/config.service";
+import { ClusterService } from "./cluster/cluster.service";
+
+const appGitRepoInfo = getGitRepoInfo();
 
 async function initSwaggerDocument(
   configService: ConfigService,
@@ -40,6 +47,20 @@ async function initSwaggerDocument(
 async function initialize(): Promise<
   [configService: ConfigService, app: NestExpressApplication]
 > {
+  const appVersion = `v${packageInfo.version}`;
+  const gitRepoVersion = appGitRepoInfo.abbreviatedSha
+    ? ` (Git revision ${appGitRepoInfo.abbreviatedSha} on ${dayjs(
+        appGitRepoInfo.committerDate,
+      ).format("YYYY-MM-DD H:mm:ss")})`
+    : "";
+
+  if (cluster.isPrimary) {
+    Logger.log(
+      `Starting ${packageInfo.name} version ${appVersion}${gitRepoVersion}`,
+      "Bootstrap",
+    );
+  }
+
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     ...(process.env.NODE_ENV === "production"
       ? { logger: ["log", "warn", "error"] }
@@ -74,7 +95,10 @@ async function startApp(
 
 async function bootstrap() {
   const [configService, app] = await initialize();
-  startApp(configService, app);
+  const clusterService = app.get(ClusterService);
+  await clusterService.initialization(
+    async () => await startApp(configService, app),
+  );
 }
 
 bootstrap().catch((err) => {
