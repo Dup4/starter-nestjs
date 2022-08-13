@@ -1,4 +1,4 @@
-# starter-NestJS
+# starter-nestjs
 
 [![Test](https://github.com/Dup4/starter-nestjs/actions/workflows/test.yml/badge.svg)](https://github.com/Dup4/starter-nestjs/actions/workflows/test.yml)
 [![Lint](https://github.com/Dup4/starter-nestjs/actions/workflows/lint.yml/badge.svg)](https://github.com/Dup4/starter-nestjs/actions/workflows/lint.yml)
