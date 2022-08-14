@@ -42,9 +42,11 @@
     "repl": "nest start --entryFile repl",
     "prebuild": "rimraf dist",
     "build": "nest build",
+    "build:docs": "npx @compodoc/compodoc -p tsconfig.json",
     "start": "nest start",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
+    "start:docs": "npx @compodoc/compodoc -p tsconfig.json -s",
     "test": "vitest",
     "lint": "run-p lint:*",
     "lint:build": "tsc --noEmit",
@@ -57,6 +59,7 @@
     "release": "bumpp --commit --push --tag && npm publish"
   },
   "dependencies": {
+    "@compodoc/compodoc": "^1.1.19",
     "@nestjs/common": "^9.0.9",
     "@nestjs/core": "^9.0.9",
     "@nestjs/platform-express": "^9.0.9",
