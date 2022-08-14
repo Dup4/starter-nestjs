@@ -12,8 +12,8 @@ import { Logger } from "@nestjs/common";
 
 import { json } from "express";
 import getGitRepoInfo from "git-repo-info";
-import dayjs from "dayjs";
 
+import dayjs from "@/common/dayjs";
 import { AppModule } from "@/app/app.module";
 import { ConfigService } from "@/config/config.service";
 import { ClusterService } from "@/cluster/cluster.service";
@@ -53,7 +53,7 @@ async function initialize(): Promise<
   const gitRepoVersion = appGitRepoInfo.abbreviatedSha
     ? ` (Git revision ${appGitRepoInfo.abbreviatedSha} on ${dayjs(
         appGitRepoInfo.committerDate,
-      ).format("YYYY-MM-DD H:mm:ss")})`
+      ).format()})`
     : "";
 
   if (cluster.isPrimary) {
