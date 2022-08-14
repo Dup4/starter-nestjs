@@ -1,7 +1,6 @@
 import path from "path";
 import cluster from "cluster";
 
-import { json } from "express";
 import { NestFactory } from "@nestjs/core";
 import {
   SwaggerModule,
@@ -10,6 +9,8 @@ import {
 } from "@nestjs/swagger";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Logger } from "@nestjs/common";
+
+import { json } from "express";
 import getGitRepoInfo from "git-repo-info";
 import dayjs from "dayjs";
 
