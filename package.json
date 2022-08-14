@@ -39,6 +39,7 @@
   "sideEffects": false,
   "scripts": {
     "dev": "nest start --watch",
+    "repl": "nest start --entryFile repl",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "start": "nest start",
