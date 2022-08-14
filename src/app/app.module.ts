@@ -1,7 +1,8 @@
 import { Module } from "@nestjs/common";
 
-import { ClusterModule } from "./cluster/cluster.module";
-import { ConfigModule } from "./config/config.module";
+import { ClusterModule } from "@/cluster/cluster.module";
+import { ConfigModule } from "@/config/config.module";
+
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 

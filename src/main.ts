@@ -13,10 +13,11 @@ import { Logger } from "@nestjs/common";
 import getGitRepoInfo from "git-repo-info";
 import dayjs from "dayjs";
 
-import { AppModule } from "./app.module";
+import { AppModule } from "@/app/app.module";
+import { ConfigService } from "@/config/config.service";
+import { ClusterService } from "@/cluster/cluster.service";
+
 import packageInfo from "./package.json";
-import { ConfigService } from "./config/config.service";
-import { ClusterService } from "./cluster/cluster.service";
 
 const appGitRepoInfo = getGitRepoInfo();
 
