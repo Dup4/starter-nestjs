@@ -2,13 +2,13 @@ import path from "path";
 import cluster from "cluster";
 
 import { NestFactory } from "@nestjs/core";
+import { NestExpressApplication } from "@nestjs/platform-express";
+import { Logger } from "@nestjs/common";
 import {
   SwaggerModule,
   DocumentBuilder,
   SwaggerDocumentOptions,
 } from "@nestjs/swagger";
-import { NestExpressApplication } from "@nestjs/platform-express";
-import { Logger } from "@nestjs/common";
 
 import { json } from "express";
 import getGitRepoInfo from "git-repo-info";
@@ -21,6 +21,7 @@ import { ClusterService } from "@/cluster/cluster.service";
 import packageInfo from "./package.json";
 
 const appGitRepoInfo = getGitRepoInfo();
+const logger = new Logger("Bootstrap");
 
 async function initSwaggerDocument(
   configService: ConfigService,
@@ -57,9 +58,8 @@ async function initialize(): Promise<
     : "";
 
   if (cluster.isPrimary) {
-    Logger.log(
+    logger.log(
       `Starting ${packageInfo.name} version ${appVersion}${gitRepoVersion}`,
-      "Bootstrap",
     );
   }
 
@@ -89,9 +89,8 @@ async function startApp(
     configService.config.server.hostname,
   );
 
-  Logger.log(
+  logger.log(
     `${packageInfo.name} is listening on ${configService.config.server.hostname}:${configService.config.server.port}`,
-    "Bootstrap",
   );
 }
 
