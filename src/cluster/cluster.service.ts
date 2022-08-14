@@ -1,7 +1,7 @@
 import os from "os";
 import cluster from "cluster";
 
-import { Injectable, Inject, forwardRef, Logger } from "@nestjs/common";
+import { Injectable, Inject, forwardRef } from "@nestjs/common";
 
 import { ConfigService } from "@/config/config.service";
 
@@ -12,8 +12,6 @@ interface IpcMessage {
 
 @Injectable()
 export class ClusterService {
-  private readonly logger = new Logger(ClusterService.name);
-
   readonly enabled: boolean;
   readonly isPrimary: boolean;
   readonly isWorker: boolean;
