@@ -1,5 +1,6 @@
 import path from "path";
 import cluster from "cluster";
+import util from "util";
 
 import { NestFactory } from "@nestjs/core";
 import { NestExpressApplication } from "@nestjs/platform-express";
@@ -22,6 +23,10 @@ import packageInfo from "./package.json";
 
 const appGitRepoInfo = getGitRepoInfo();
 const logger = new Logger("Bootstrap");
+
+String.prototype.format = function format(...args) {
+  return util.format.call(undefined, this, ...args);
+};
 
 async function initSwaggerDocument(
   configService: ConfigService,

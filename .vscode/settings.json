@@ -12,6 +12,8 @@
     "nestjs",
     "pnpm",
     "recaptcha",
+    "RWLOCK",
+    "setex",
     "typecheck",
     "vite",
     "vitest"
@@ -23,4 +25,9 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "Lua.diagnostics.globals": [
+    "KEYS",
+    "redis",
+    "ARGV"
+  ],
 }
