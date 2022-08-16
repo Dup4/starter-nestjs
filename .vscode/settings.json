@@ -15,6 +15,7 @@
     "RWLOCK",
     "setex",
     "typecheck",
+    "unplugin",
     "vite",
     "vitest"
   ],
