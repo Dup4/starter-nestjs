@@ -30,12 +30,14 @@ export class LockService {
 
   constructor(private readonly redisService: RedisService) {
     this.redis = this.redisService.getClient() as RedisWithLock;
+
     this.redis.defineCommand("callLock", {
       numberOfKeys: 1,
       lua: fs
         .readFileSync(join(__dirname, "scripts", "lock.lua"))
         .toString("utf-8"),
     });
+
     this.redis.defineCommand("callReadWriteLock", {
       numberOfKeys: 3,
       lua: fs
@@ -89,7 +91,9 @@ export class LockService {
 
       // `unlock` may be called during the `await` above, so if that happens do not set the timer
       // eslint-disable-next-line @typescript-eslint/no-use-before-define
-      if (!unlocked) setRefreshTimer();
+      if (!unlocked) {
+        setRefreshTimer();
+      }
     };
 
     // Use a timer to refresh the lock's TTL
@@ -100,7 +104,10 @@ export class LockService {
     setRefreshTimer();
 
     const unlock = async () => {
-      if (unlocked) return;
+      if (unlocked) {
+        return;
+      }
+
       unlocked = true;
 
       clearTimeout(refreshTimer);
