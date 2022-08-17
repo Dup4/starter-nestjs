@@ -49,5 +49,15 @@ jobs:
       - name: Test
         run: pnpm test
 
+      - name: Test Cov
+        run: pnpm test:cov
+
+      - name: Upload coverage to CodeCov
+        if: contains(matrix.os, 'ubuntu')
+        uses: codecov/codecov-action@v2
+        with:
+          files: coverage/clover.xml
+          verbose: true
+
       - name: e2e Test
         run: pnpm test:e2e
