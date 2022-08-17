@@ -9,6 +9,9 @@ on:
     branches:
       - main
 
+env:
+  STARTER_NESTJS_CONFIG_FILE: ./config-example.yaml
+
 jobs:
   test:
     runs-on: ${{ matrix.os }}
@@ -47,6 +50,4 @@ jobs:
         run: pnpm test
 
       - name: e2e Test
-        env:
-          STARTER_NESTJS_CONFIG_FILE: ./config-example.yaml
         run: pnpm test:e2e
