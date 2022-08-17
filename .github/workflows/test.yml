@@ -19,6 +19,12 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
       fail-fast: false
 
+    services:
+      mysql:
+        image: redis:7.0
+        ports:
+          - 6379:6379
+
     steps:
       - uses: actions/checkout@v2
 
