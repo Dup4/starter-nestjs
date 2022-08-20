@@ -59,17 +59,17 @@ export class LockService {
     // Try locking
     let retries = 0;
 
-    /* eslint-disable no-await-in-loop */
     while (!(await doLock())) {
-      if (++retries === LOCK_MAX_RETRY)
+      if (++retries === LOCK_MAX_RETRY) {
         throw new Error(
           `Retries limit exceeded while attempting to lock ${JSON.stringify(
             name,
           )}`,
         );
+      }
+
       await delay(LOCK_RETRY_DELAY);
     }
-    /* eslint-enable no-await-in-loop */
 
     // If the locked lock token mismatch, means the lock expired while this node hold the lock
     // This is a dangerous situation
@@ -90,7 +90,6 @@ export class LockService {
       }
 
       // `unlock` may be called during the `await` above, so if that happens do not set the timer
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
       if (!unlocked) {
         setRefreshTimer();
       }
