@@ -1,0 +1,12 @@
+#! /bin/sh
+
+ret=0
+BASEURL="http://127.0.0.1:3000/api/app/version"
+if curl --silent --fail "$BASEURL" >/dev/null; then
+  printf "http ok"
+else
+  printf "http error"
+  ret=1
+fi
+
+exit "${ret}"
