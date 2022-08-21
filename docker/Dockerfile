@@ -16,7 +16,7 @@ RUN cd build \
   && cp package.json /app/ \
   && cp config-example.yaml /app/ \
   && cp -a dist /app/ \
-  && cp -a node_modules /app/dist/ \
+  && cp -a node_modules /app/ \
   && rm -rf /app/build
 
 FROM node:16-alpine
