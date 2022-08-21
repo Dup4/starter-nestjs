@@ -1,3 +1,5 @@
+import { Injectable } from "@nestjs/common";
+
 import fs from "fs-extra";
 import yaml from "js-yaml";
 import { validateSync } from "class-validator";
@@ -8,6 +10,7 @@ import { EnvVar } from "@/common/constant";
 import { AppConfig } from "./config.schema";
 import { checkConfigRelation } from "./config-relation.decorator";
 
+@Injectable()
 export class ConfigService {
   readonly config: AppConfig;
 
