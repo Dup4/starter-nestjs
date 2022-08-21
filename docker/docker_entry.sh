@@ -10,7 +10,7 @@ if [ X"${1}" = X"primary" ]; then
     cp /app/config/config-example.yaml /app/config/config.yaml
   fi
 
-  exec node /app/dist/main.js
+  exec node /app/dist/src/main.js
 else
   exec "$@"
 fi

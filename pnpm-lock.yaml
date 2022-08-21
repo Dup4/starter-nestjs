@@ -55,6 +55,7 @@ importers:
       '@nestjs/common': 9.0.11_allg6cauirbqzgqcmexy2wdnoq
       '@nestjs/core': 9.0.11_psficsz3mqirqwo2ujbfhdr2aa
       '@nestjs/platform-express': 9.0.11_khr6mt6ojlxbw7bo55fknouh34
+      '@nestjs/swagger': 6.0.5_ivnm4e5qsl7bn6kf5k4o57kelu
       '@types/object-path': 0.11.1
       class-transformer: 0.5.1
       class-validator: 0.13.2
@@ -74,7 +75,6 @@ importers:
       '@compodoc/compodoc': 1.1.19
       '@nestjs/cli': 9.0.0_@swc+core@1.2.241
       '@nestjs/schematics': 9.0.1_typescript@4.7.4
-      '@nestjs/swagger': 6.0.5_ivnm4e5qsl7bn6kf5k4o57kelu
       '@nestjs/testing': 9.0.11_z6gh3n3qpn6ig2eqi2q57zofvq
       '@swc/core': 1.2.241
       '@types/express': 4.17.13
@@ -1964,7 +1964,7 @@ packages:
       class-transformer: 0.5.1
       class-validator: 0.13.2
       reflect-metadata: 0.1.13
-    dev: true
+    dev: false
 
   /@nestjs/platform-express/9.0.11_khr6mt6ojlxbw7bo55fknouh34:
     resolution: {integrity: sha512-Up1Ps08n2Y07AYakTKKU5uofGQoAQoUaRyfXdH0G54OnICCUiqcFH0QveNYLCkHoMP4iFs6vMr3xhvO6y91NBQ==}
@@ -2034,7 +2034,7 @@ packages:
     transitivePeerDependencies:
       - class-transformer
       - class-validator
-    dev: true
+    dev: false
 
   /@nestjs/testing/9.0.11_z6gh3n3qpn6ig2eqi2q57zofvq:
     resolution: {integrity: sha512-tT+yj3av7ZJb9Cy09C4+FoUULvzUntf81g5eK5shRVeQ35RWqr7E5Uq77B7ePUF2Er/TictVZk43d7rKq1ClNA==}
@@ -5971,7 +5971,6 @@ packages:
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /log-symbols/4.1.0:
     resolution: {integrity: sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==}
@@ -7426,7 +7425,7 @@ packages:
 
   /swagger-ui-dist/4.13.2:
     resolution: {integrity: sha512-jHL6UyIYpvEI7NsuWd0R3hJaPQTg6Oo4qSBo+oVfOEkv6rrQm/475RGSMmZgV6ajp+Sgrp9CqrDjQYAgQqiv1A==}
-    dev: true
+    dev: false
 
   /symbol-observable/4.0.0:
     resolution: {integrity: sha512-b19dMThMV4HVFynSAM1++gBHAbk2Tc/osgLIBZMKsyqh34jb2e8Os7T6ZW/Bt3pJFdBTd2JwAnAAEQV7rSNvcQ==}
