@@ -16,6 +16,7 @@ RUN cd build \
   && cp package.json /app/ \
   && cp config-example.yaml /app/ \
   && cp -a dist /app/ \
+  && cp -a .git /app/ \
   && cp -a node_modules /app/ \
   && rm -rf /app/build
 
