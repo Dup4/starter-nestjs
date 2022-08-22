@@ -1,4 +1,3 @@
-import path from "path";
 import cluster from "cluster";
 import util from "util";
 
@@ -13,6 +12,7 @@ import {
 
 import { json } from "express";
 import getGitRepoInfo from "git-repo-info";
+import urlJoin from "url-join";
 
 import dayjs from "@/common/dayjs";
 import { AppModule } from "@/app/app.module";
@@ -46,7 +46,7 @@ async function initSwaggerDocument(
 
   const document = SwaggerModule.createDocument(app, config, options);
   SwaggerModule.setup(
-    path.join(configService.config.server.globalAPIPathPrefix, "docs"),
+    urlJoin(configService.config.server.globalAPIPathPrefix, "docs"),
     app,
     document,
   );

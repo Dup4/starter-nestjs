@@ -55,6 +55,7 @@
     "object-path": "^0.11.8",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.5.6",
+    "url-join": "^4.0.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
@@ -71,6 +72,7 @@
     "@types/js-yaml": "^4.0.5",
     "@types/node": "^17.0.45",
     "@types/supertest": "^2.0.12",
+    "@types/url-join": "^4.0.1",
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "@typescript-eslint/parser": "^5.33.1",
