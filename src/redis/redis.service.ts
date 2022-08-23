@@ -44,6 +44,10 @@ export class RedisService implements OnModuleInit {
     await this.client.del(key);
   }
 
+  async ping(): Promise<boolean> {
+    return (await this.client.ping()) === "PONG";
+  }
+
   /**
    * Get a Redis client object to execute Redis commands directly.
    *

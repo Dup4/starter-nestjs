@@ -1,0 +1,44 @@
+import { Test, TestingModule } from "@nestjs/testing";
+import { describe, beforeAll, expect, it } from "vitest";
+
+import { HealthController } from "./health.controller";
+import { HealthModule } from "./health.module";
+
+describe("HealthController", () => {
+  let controller: HealthController;
+
+  beforeAll(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      imports: [HealthModule],
+    }).compile();
+
+    controller = module.get<HealthController>(HealthController);
+  });
+
+  describe("defined", () => {
+    it("should be defined", () => {
+      expect(controller).toBeDefined();
+    });
+  });
+
+  describe("health check", () => {
+    it("should be", async () => {
+      expect(await controller.check()).toMatchInlineSnapshot(`
+        {
+          "details": {
+            "redis": {
+              "status": "up",
+            },
+          },
+          "error": {},
+          "info": {
+            "redis": {
+              "status": "up",
+            },
+          },
+          "status": "ok",
+        }
+      `);
+    });
+  });
+});
