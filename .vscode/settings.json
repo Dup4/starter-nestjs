@@ -29,6 +29,9 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
   "Lua.diagnostics.globals": [
     "KEYS",
     "redis",
