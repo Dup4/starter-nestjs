@@ -27,12 +27,14 @@ describe("HealthController", () => {
         {
           "details": {
             "redis": {
+              "message": "redis is healthy",
               "status": "up",
             },
           },
           "error": {},
           "info": {
             "redis": {
+              "message": "redis is healthy",
               "status": "up",
             },
           },

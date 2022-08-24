@@ -1,4 +1,7 @@
 module.exports = {
+  detectOpenHandles: true,
+  // for @nestjs/terminus
+  forceExit: true,
   moduleFileExtensions: ["js", "json", "ts"],
   rootDir: "./",
   testEnvironment: "node",

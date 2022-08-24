@@ -16,14 +16,22 @@ describe("AppController (e2e)", () => {
     await app.init();
   });
 
-  it("/app/hello (GET)", () => {
-    return request(app.getHttpServer())
+  afterAll(async () => {
+    await app.close();
+  });
+
+  it("/app/hello (GET)", async () => {
+    return await request(app.getHttpServer())
       .get("/app/hello")
       .expect(200)
       .expect("Hello World!");
   });
 
-  it("/app/version (GET)", () => {
-    return request(app.getHttpServer()).get("/app/version").expect(200);
+  it("/app/version (GET)", async () => {
+    return await request(app.getHttpServer()).get("/app/version").expect(200);
+  });
+
+  it("/app/health (GET)", async () => {
+    return await request(app.getHttpServer()).get("/health").expect(200);
   });
 });
