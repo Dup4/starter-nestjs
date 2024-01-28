@@ -2,6 +2,21 @@
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.formatOnSave": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "Lua.diagnostics.globals": [
+    "KEYS",
+    "redis",
+    "ARGV"
+  ],
   "cSpell.words": [
     "antfu",
     "buildx",
@@ -22,20 +37,5 @@
     "unplugin",
     "vite",
     "vitest"
-  ],
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[prisma]": {
-    "editor.defaultFormatter": "Prisma.prisma"
-  },
-  "Lua.diagnostics.globals": [
-    "KEYS",
-    "redis",
-    "ARGV"
   ],
 }
