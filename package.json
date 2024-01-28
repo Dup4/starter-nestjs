@@ -13,7 +13,11 @@
   "bugs": {
     "url": "https://github.com/Dup4/starter-nesjt/issues"
   },
-  "keywords": [],
+  "keywords": [
+    "starter",
+    "template",
+    "nest.js"
+  ],
   "engines": {
     "node": ">=16"
   },
