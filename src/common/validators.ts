@@ -1,11 +1,11 @@
-import { registerDecorator, ValidationOptions } from "class-validator";
+import { Buffer } from "node:buffer";
+import { ValidationOptions, registerDecorator } from "class-validator";
 import emojiRegex from "emoji-regex";
 
 export function If<T>(
   callback: (value: T) => boolean,
   validationOptions?: ValidationOptions,
 ) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (object: any, propertyName: string) => {
     registerDecorator({
       target: object.constructor,
@@ -24,7 +24,7 @@ export function If<T>(
 // want to validate if it's a integer
 export function IsIntString(validationOptions?: ValidationOptions) {
   return If(
-    (value) => typeof value === "string" && Number.isInteger(Number(value)),
+    value => typeof value === "string" && Number.isInteger(Number(value)),
     validationOptions,
   );
 }
@@ -33,11 +33,11 @@ export function IsIntString(validationOptions?: ValidationOptions) {
 // writing port numbers as number
 export function IsPortNumber(validationOptions?: ValidationOptions) {
   return If(
-    (value) =>
-      typeof value === "number" &&
-      Number.isInteger(value) &&
-      value >= 1 &&
-      value <= 65535,
+    value =>
+      typeof value === "number"
+      && Number.isInteger(value)
+      && value >= 1
+      && value <= 65535,
     validationOptions,
   );
 }
@@ -46,14 +46,14 @@ export function isValidFilename(filename: string): boolean {
   const forbiddenCharacters = ["/", "\x00"];
   const reservedFilenames = [".", ".."];
   return (
-    forbiddenCharacters.every((ch) => filename.indexOf(ch) === -1) &&
-    !reservedFilenames.includes(filename)
+    forbiddenCharacters.every(ch => !filename.includes(ch))
+    && !reservedFilenames.includes(filename)
   );
 }
 
 export function IsValidFilename(validationOptions?: ValidationOptions) {
   return If(
-    (value) => typeof value === "string" && isValidFilename(value),
+    value => typeof value === "string" && isValidFilename(value),
     validationOptions,
   );
 }
@@ -61,15 +61,15 @@ export function IsValidFilename(validationOptions?: ValidationOptions) {
 export const MAX_EMOJI_LENGTH = 28;
 export function isEmoji(str: string): boolean {
   return (
-    emojiRegex().test(str) &&
-    str.length >= 1 &&
-    Buffer.byteLength(str, "utf-8") <= MAX_EMOJI_LENGTH
+    emojiRegex().test(str)
+    && str.length >= 1
+    && Buffer.byteLength(str, "utf-8") <= MAX_EMOJI_LENGTH
   );
 }
 
 export function IsEmoji(validationOptions?: ValidationOptions) {
   return If(
-    (value) => typeof value === "string" && isEmoji(value),
+    value => typeof value === "string" && isEmoji(value),
     validationOptions,
   );
 }

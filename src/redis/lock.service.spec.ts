@@ -1,14 +1,13 @@
 import { Test, TestingModule } from "@nestjs/testing";
-import { describe, beforeAll, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 
 import { v4 as uuid } from "uuid";
 
-import { ConfigService } from "@/config/config.service";
-
 import { RedisService } from "./redis.service";
 import { LockService } from "./lock.service";
+import { ConfigService } from "@/config/config.service";
 
-describe("LockService", () => {
+describe("lockService", () => {
   let app: TestingModule;
 
   beforeAll(async () => {

@@ -1,7 +1,8 @@
-import os from "os";
-import cluster from "cluster";
+import os from "node:os";
+import cluster from "node:cluster";
+import process from "node:process";
 
-import { Injectable, Inject, forwardRef } from "@nestjs/common";
+import { Inject, Injectable, forwardRef } from "@nestjs/common";
 
 import { ConfigService } from "@/config/config.service";
 
@@ -43,12 +44,11 @@ export class ClusterService {
     }
 
     cluster.on("message", (worker, message: IpcMessage) =>
-      this.callMessageListeners(message),
-    );
+      this.callMessageListeners(message));
   }
 
   private callMessageListeners(message: IpcMessage) {
-    (this.messageListeners.get(message.channel) || []).forEach((callback) =>
+    (this.messageListeners.get(message.channel) || []).forEach(callback =>
       callback(message.data),
     );
   }
@@ -74,7 +74,6 @@ export class ClusterService {
       this.messageListeners.set(channel, []);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     this.messageListeners.get(channel)?.push(callback as any);
   }
 }

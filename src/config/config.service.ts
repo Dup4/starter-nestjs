@@ -1,14 +1,15 @@
-import { Injectable } from "@nestjs/common";
+import process from "node:process";
 
 import fs from "fs-extra";
 import yaml from "js-yaml";
 import { validateSync } from "class-validator";
 import { plainToClass } from "class-transformer";
 
-import { EnvVar } from "@/common/constant";
+import { Injectable } from "@nestjs/common";
 
 import { AppConfig } from "./config.schema";
 import { checkConfigRelation } from "./config-relation.decorator";
+import { EnvVar } from "@/common/constant";
 
 @Injectable()
 export class ConfigService {

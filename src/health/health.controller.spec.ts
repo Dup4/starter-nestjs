@@ -1,10 +1,10 @@
 import { Test, TestingModule } from "@nestjs/testing";
-import { describe, beforeAll, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 
 import { HealthController } from "./health.controller";
 import { HealthModule } from "./health.module";
 
-describe("HealthController", () => {
+describe("healthController", () => {
   let controller: HealthController;
 
   beforeAll(async () => {
