@@ -1,17 +1,17 @@
 import { ApiProperty } from "@nestjs/swagger";
 
 import {
-  ValidateNested,
-  IsIP,
-  IsString,
-  IsIn,
-  IsBoolean,
-  IsInt,
-  Min,
-  IsEmail,
-  IsOptional,
   IsArray,
+  IsBoolean,
+  IsEmail,
+  IsIP,
+  IsIn,
+  IsInt,
+  IsOptional,
+  IsString,
   IsUrl,
+  Min,
+  ValidateNested,
 } from "class-validator";
 import { Type } from "class-transformer";
 
@@ -164,7 +164,7 @@ class EventReportConfig {
   @IsOptional()
   readonly telegramApiRoot?: string;
 
-  @If((value) => typeof value === "string" || typeof value === "number")
+  @If(value => typeof value === "string" || typeof value === "number")
   @IsOptional()
   readonly sentTo?: string | number;
 

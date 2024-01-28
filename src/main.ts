@@ -1,29 +1,31 @@
-import cluster from "cluster";
-import util from "util";
-
-import { NestFactory } from "@nestjs/core";
-import { NestExpressApplication } from "@nestjs/platform-express";
-import { Logger } from "@nestjs/common";
-import {
-  SwaggerModule,
-  DocumentBuilder,
-  SwaggerDocumentOptions,
-} from "@nestjs/swagger";
+import cluster from "node:cluster";
+import util from "node:util";
+import process from "node:process";
 
 import { json } from "express";
 import getGitRepoInfo from "git-repo-info";
 import urlJoin from "url-join";
 
+import { NestFactory } from "@nestjs/core";
+import { NestExpressApplication } from "@nestjs/platform-express";
+import { Logger } from "@nestjs/common";
+import {
+
+  DocumentBuilder,
+  SwaggerDocumentOptions,
+  SwaggerModule,
+} from "@nestjs/swagger";
+
+import packageInfo from "./package.json";
 import dayjs from "@/common/dayjs";
 import { AppModule } from "@/app/app.module";
 import { ConfigService } from "@/config/config.service";
 import { ClusterService } from "@/cluster/cluster.service";
 
-import packageInfo from "./package.json";
-
 const appGitRepoInfo = getGitRepoInfo();
 const logger = new Logger("Bootstrap");
 
+// eslint-disable-next-line no-extend-native
 String.prototype.format = function format(...args) {
   return util.format.call(undefined, this, ...args);
 };
@@ -108,7 +110,7 @@ async function bootstrap() {
 }
 
 bootstrap().catch((err) => {
-  console.error(err); // eslint-disable-line no-console
-  console.error("Error bootstrapping the application, exiting..."); // eslint-disable-line no-console
+  console.error(err);
+  console.error("Error bootstrapping the application, exiting...");
   process.exit(1);
 });

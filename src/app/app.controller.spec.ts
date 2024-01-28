@@ -1,10 +1,10 @@
 import { Test, TestingModule } from "@nestjs/testing";
-import { describe, beforeAll, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 
-describe("AppController", () => {
+describe("appController", () => {
   let app: TestingModule;
 
   beforeAll(async () => {
@@ -15,7 +15,7 @@ describe("AppController", () => {
   });
 
   describe("getHello", () => {
-    it('should return "Hello World!"', () => {
+    it("should return \"Hello World!\"", () => {
       const appController = app.get<AppController>(AppController);
       expect(appController.getHello()).toBe("Hello World!");
     });

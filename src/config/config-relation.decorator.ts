@@ -38,9 +38,8 @@ const CONFIG_RELATION_METADATA_KEY = "config-relation";
  * of config.
  *
  * @param referencedValuePath
- * @param type
+ * @param relationType
  */
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function ConfigRelation(
   referencedValuePath: string,
   relationType: ConfigRelationType,

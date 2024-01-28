@@ -1,5 +1,5 @@
+import { describe, expect, it } from "vitest";
 import { isEmoji } from "./validators";
-import { describe, expect, it, test } from "vitest";
 
 describe("isEmoji", () => {
   it("valid emoji", () => {
@@ -18,15 +18,15 @@ describe("isEmoji", () => {
       "🕊",
     ];
 
-    test.each(emojiList)("", (emoji) => {
+    it.each(emojiList)("", (emoji) => {
       expect(isEmoji(emoji)).toBe(true);
     });
   });
 
   it("invalid emoji", () => {
-    const invalidEmojiList = ["1", "a", "#", "@", '"'];
+    const invalidEmojiList = ["1", "a", "#", "@", "\""];
 
-    test.each(invalidEmojiList)("", (emoji) => {
+    it.each(invalidEmojiList)("", (emoji) => {
       expect(isEmoji(emoji)).toBe(false);
     });
   });

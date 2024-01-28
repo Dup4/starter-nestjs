@@ -1,10 +1,10 @@
-import { join } from "path";
+import { join } from "node:path";
 import fs from "fs-extra";
-
-import { Injectable } from "@nestjs/common";
 
 import { Redis } from "ioredis";
 import { v4 as uuid } from "uuid";
+
+import { Injectable } from "@nestjs/common";
 
 import { delay } from "@/common/delay";
 import { RedisService } from "@/redis/redis.service";
@@ -91,6 +91,8 @@ export class LockService {
 
       // `unlock` may be called during the `await` above, so if that happens do not set the timer
       if (!unlocked) {
+        // TODO(Dup4) solve the call cycle
+        // eslint-disable-next-line ts/no-use-before-define
         setRefreshTimer();
       }
     };
@@ -160,7 +162,7 @@ export class LockService {
       REDIS_KEY_RWLOCK_WRITE_INTENT,
       REDIS_KEY_RWLOCK_WRITE_LOCK,
       REDIS_KEY_RWLOCK_READERS,
-    ].map((key) => key.format(name));
+    ].map(key => key.format(name));
 
     if (type === "Read") {
       return await this.internalLock(

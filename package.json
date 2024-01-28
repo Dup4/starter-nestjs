@@ -3,17 +3,17 @@
   "version": "0.0.0",
   "packageManager": "pnpm@8.15.0",
   "description": "",
-  "keywords": [],
-  "homepage": "https://github.com/Dup4/starter-nesjt#readme",
-  "bugs": {
-    "url": "https://github.com/Dup4/starter-nesjt/issues"
-  },
-  "license": "MIT",
   "author": "Dup4 <lyuzhi.pan@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/Dup4/starter-nesjt#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Dup4/starter-nesjt.git"
   },
+  "bugs": {
+    "url": "https://github.com/Dup4/starter-nesjt/issues"
+  },
+  "keywords": [],
   "engines": {
     "node": ">=16"
   },
@@ -61,6 +61,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^2.6.3",
     "@babel/types": "^7.19.3",
     "@compodoc/compodoc": "^1.1.19",
     "@nestjs/cli": "^9.1.4",
@@ -76,18 +77,17 @@
     "@types/supertest": "^2.0.12",
     "@types/url-join": "^4.0.1",
     "@types/uuid": "^8.3.4",
-    "@typescript-eslint/eslint-plugin": "^5.39.0",
-    "@typescript-eslint/parser": "^5.39.0",
     "@vitest/coverage-c8": "^0.22.1",
     "bumpp": "^7.2.0",
-    "eslint": "^8.24.0",
+    "eslint": "^8.56.0",
     "jest": "^28.1.3",
     "npm-run-all": "^4.1.5",
     "pnpm": "^8.15.0",
     "rimraf": "^3.0.2",
     "supertest": "^6.3.0",
+    "taze": "^0.13.1",
     "ts-jest": "^28.0.8",
-    "typescript": "^4.8.4",
+    "typescript": "^4.9.4",
     "unplugin-swc": "^1.3.2",
     "vitest": "^0.22.1"
   }
