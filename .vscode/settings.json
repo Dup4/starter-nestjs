@@ -2,26 +2,6 @@
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.formatOnSave": true,
-  "cSpell.words": [
-    "antfu",
-    "buildx",
-    "bumpp",
-    "codecov",
-    "compodoc",
-    "DOCKERHUB",
-    "esmo",
-    "esno",
-    "Minio",
-    "nestjs",
-    "pnpm",
-    "recaptcha",
-    "RWLOCK",
-    "setex",
-    "typecheck",
-    "unplugin",
-    "vite",
-    "vitest"
-  ],
   "typescript.tsdk": "node_modules/typescript/lib",
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -36,5 +16,26 @@
     "KEYS",
     "redis",
     "ARGV"
+  ],
+  "cSpell.words": [
+    "antfu",
+    "buildx",
+    "bumpp",
+    "codecov",
+    "compodoc",
+    "DOCKERHUB",
+    "esmo",
+    "esno",
+    "Minio",
+    "nestjs",
+    "pnpm",
+    "realpath",
+    "recaptcha",
+    "RWLOCK",
+    "setex",
+    "typecheck",
+    "unplugin",
+    "vite",
+    "vitest"
   ],
 }

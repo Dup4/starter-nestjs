@@ -14,6 +14,9 @@
     "type": "git",
     "url": "git+https://github.com/Dup4/starter-nesjt.git"
   },
+  "engines": {
+    "node": ">=16"
+  },
   "scripts": {
     "dev": "nest start --watch",
     "repl": "nest start --entryFile repl",
