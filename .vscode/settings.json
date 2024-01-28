@@ -49,6 +49,7 @@
     "recaptcha",
     "RWLOCK",
     "setex",
+    "taze",
     "typecheck",
     "unplugin",
     "vite",
