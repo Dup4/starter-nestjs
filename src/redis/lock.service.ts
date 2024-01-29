@@ -83,6 +83,10 @@ export class LockService {
 
     let unlocked = false;
 
+    // Use a timer to refresh the lock's TTL
+    let refreshTimer: ReturnType<typeof setTimeout>;
+    let setRefreshTimer = () => {};
+
     const refreshLockExpire = async () => {
       if (!(await doRefresh())) {
         onLockTokenMismatch();
@@ -91,16 +95,12 @@ export class LockService {
 
       // `unlock` may be called during the `await` above, so if that happens do not set the timer
       if (!unlocked) {
-        // TODO(Dup4) solve the call cycle
-        // eslint-disable-next-line ts/no-use-before-define
         setRefreshTimer();
       }
     };
 
-    // Use a timer to refresh the lock's TTL
-    let refreshTimer: ReturnType<typeof setTimeout>;
-    const setRefreshTimer = () => {
-      refreshTimer = setTimeout(refreshLockExpire, LOCK_TTL_RESET_INTERVAL);
+    setRefreshTimer = () => {
+      refreshTimer = setInterval(refreshLockExpire, LOCK_TTL_RESET_INTERVAL);
     };
     setRefreshTimer();
 
