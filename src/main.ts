@@ -74,6 +74,7 @@ async function initialize(): Promise<
     ...(process.env.NODE_ENV === "production"
       ? { logger: ["log", "warn", "error"] }
       : {}),
+    snapshot: true,
   });
 
   const configService = app.get(ConfigService);
