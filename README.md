@@ -3,6 +3,7 @@
 [![Test](https://github.com/Dup4/starter-nestjs/actions/workflows/test.yml/badge.svg)](https://github.com/Dup4/starter-nestjs/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/Dup4/starter-nestjs/branch/main/graph/badge.svg)](https://codecov.io/gh/Dup4/starter-nestjs)
 [![GitHub release](https://img.shields.io/github/release/Dup4/starter-nestjs.svg)](https://GitHub.com/Dup4/starter-nestjs/releases/)
+[![License][license-image-mit]][license-link-mit]
 
 ## Usage
 
@@ -36,3 +37,5 @@ docker run \
 [MIT](./LICENSE) License © 2022 - PRESENT [Dup4][dup4]
 
 [dup4]: https://github.com/Dup4
+[license-image-mit]: https://img.shields.io/badge/license-MIT-blue.svg?labelColor=333333
+[license-link-mit]: https://mit-license.org/
