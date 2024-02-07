@@ -1,4 +1,7 @@
+import process from "node:process";
+
 import { Module } from "@nestjs/common";
+import { DevtoolsModule } from "@nestjs/devtools-integration";
 
 import { PrismaService } from "../prisma.service";
 import { UserService } from "../user.service";
@@ -11,7 +14,15 @@ import { ConfigModule } from "@/config/config.module";
 import { HealthModule } from "@/health/health.module";
 
 @Module({
-  imports: [ConfigModule, ClusterModule, HealthModule],
+  imports: [
+    ConfigModule,
+    ClusterModule,
+    HealthModule,
+    DevtoolsModule.register({
+      http: process.env.NODE_ENV !== "production",
+      port: 3013,
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService, UserService, PrismaService, PostService],
 })
