@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { Prisma, User } from "@prisma/client";
-import { PrismaService } from "./prisma.service";
+import { PrismaService } from "../prisma.service";
 
 @Injectable()
 export class UserService {
@@ -22,16 +22,14 @@ export class UserService {
     orderBy?: Prisma.UserOrderByWithRelationInput;
   }): Promise<User[]> {
     if (!params || !params.where) {
-      // 判断是否有搜索条件
-      // console.log("success");
-      return this.prisma.user.findMany(); // 没有则返回所有用户
+      return this.prisma.user.findMany();
     } else {
       const { skip, take, cursor, where, orderBy } = params;
       return this.prisma.user.findMany({
         skip,
         take,
         cursor,
-        where, // 有则按照条件搜索
+        where,
         orderBy,
       });
     }

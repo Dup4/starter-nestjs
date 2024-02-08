@@ -1,8 +1,10 @@
 import { Module } from "@nestjs/common";
 
 import { PrismaService } from "../prisma.service";
-import { UserService } from "../user.service";
-import { PostService } from "../post.service";
+import { UserService } from "../user/user.service";
+import { PostService } from "../user/post.service";
+
+import { UserController } from "../user/user.controller";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 
@@ -12,7 +14,7 @@ import { HealthModule } from "@/health/health.module";
 
 @Module({
   imports: [ConfigModule, ClusterModule, HealthModule],
-  controllers: [AppController],
+  controllers: [AppController, UserController],
   providers: [AppService, UserService, PrismaService, PostService],
 })
 export class AppModule { }
