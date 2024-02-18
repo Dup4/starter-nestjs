@@ -3,7 +3,7 @@ import process from "node:process";
 import { Module } from "@nestjs/common";
 import { DevtoolsModule } from "@nestjs/devtools-integration";
 
-import { PrismaService } from "../prisma.service";
+import { PrismaService } from "../../prisma.service";
 import { UserService } from "../user/user.service";
 
 import { UserController } from "../user/user.controller";
