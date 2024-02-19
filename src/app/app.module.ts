@@ -5,7 +5,6 @@ import { DevtoolsModule } from "@nestjs/devtools-integration";
 
 import { PrismaService } from "../prisma.service";
 import { UserService } from "../user/user.service";
-import { PostService } from "../user/post.service";
 
 import { UserController } from "../user/user.controller";
 import { AppController } from "./app.controller";
@@ -26,6 +25,6 @@ import { HealthModule } from "@/health/health.module";
     }),
   ],
   controllers: [AppController, UserController],
-  providers: [AppService, UserService, PrismaService, PostService],
+  providers: [AppService, UserService, PrismaService],
 })
 export class AppModule { }
