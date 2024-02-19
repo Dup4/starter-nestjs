@@ -42,7 +42,8 @@
     "format": "run-p format:*",
     "format:eslint": "eslint --fix .",
     "prepublishOnly": "npm run build",
-    "release": "bumpp --commit --push --tag && npm publish"
+    "release": "bumpp --commit --push --tag && npm publish",
+    "postinstall": "pnpm install @prisma/client"
   },
   "dependencies": {
     "@nestjs/common": "^10.3.1",
