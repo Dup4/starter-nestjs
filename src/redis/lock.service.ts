@@ -85,7 +85,7 @@ export class LockService {
 
     // Use a timer to refresh the lock's TTL
     let refreshTimer: ReturnType<typeof setTimeout>;
-    let setRefreshTimer = () => {};
+    let setRefreshTimer = () => { };
 
     const refreshLockExpire = async () => {
       if (!(await doRefresh())) {

@@ -60,8 +60,8 @@ async function initialize(): Promise<
   const appVersion = `v${packageInfo.version}`;
   const gitRepoVersion = appGitRepoInfo.abbreviatedSha
     ? ` (Git revision ${appGitRepoInfo.abbreviatedSha} on ${dayjs(
-        appGitRepoInfo.committerDate,
-      ).format()})`
+      appGitRepoInfo.committerDate,
+    ).format()})`
     : "";
 
   if (cluster.isPrimary) {
