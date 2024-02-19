@@ -118,7 +118,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/home/ckz/repo/starter-nestjs/node_modules/.prisma/client",
+      "value": "/home/ckz/repo/starter-nestjs/prisma/client",
       "fromEnvVar": null
     },
     "config": {
@@ -135,17 +135,16 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../.env",
-    "schemaEnvPath": "../../../.env"
+    "rootEnvPath": "../../.env",
+    "schemaEnvPath": "../../.env"
   },
-  "relativePath": "../../../prisma",
+  "relativePath": "..",
   "clientVersion": "5.9.1",
   "engineVersion": "23fdc5965b1e05fc54e5f26ed3de66776b93de64",
   "datasourceNames": [
     "db"
   ],
   "activeProvider": "mysql",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -154,9 +153,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "Ly8gVGhpcyBpcyB5b3VyIFByaXNtYSBzY2hlbWEgZmlsZSwKLy8gbGVhcm4gbW9yZSBhYm91dCBpdCBpbiB0aGUgZG9jczogaHR0cHM6Ly9wcmlzLmx5L2QvcHJpc21hLXNjaGVtYQoKZ2VuZXJhdG9yIGNsaWVudCB7CiAgcHJvdmlkZXIgPSAicHJpc21hLWNsaWVudC1qcyIKICBvdXRwdXQgICA9ICIuLi9ub2RlX21vZHVsZXMvLnByaXNtYS9jbGllbnQiCn0KCmRhdGFzb3VyY2UgZGIgewogIHByb3ZpZGVyID0gIm15c3FsIgogIHVybCAgICAgID0gZW52KCJEQVRBQkFTRV9VUkwiKQp9Cgptb2RlbCBVc2VyIHsKICBpZCAgICBJbnQgICAgIEBpZCBAZGVmYXVsdChhdXRvaW5jcmVtZW50KCkpCiAgZW1haWwgU3RyaW5nICBAdW5pcXVlCiAgbmFtZSAgU3RyaW5nPwp9Cg==",
-  "inlineSchemaHash": "48b4f276b0c7bafafc5c2f57c849356a1b4a05aa6c2762e1c5a6ac9ecd8b460d",
-  "noEngine": false
+  "inlineSchema": "Ly8gVGhpcyBpcyB5b3VyIFByaXNtYSBzY2hlbWEgZmlsZSwKLy8gbGVhcm4gbW9yZSBhYm91dCBpdCBpbiB0aGUgZG9jczogaHR0cHM6Ly9wcmlzLmx5L2QvcHJpc21hLXNjaGVtYQoKZ2VuZXJhdG9yIGNsaWVudCB7CiAgcHJvdmlkZXIgPSAicHJpc21hLWNsaWVudC1qcyIKICBvdXRwdXQgICA9ICIuL2NsaWVudCIKfQoKZGF0YXNvdXJjZSBkYiB7CiAgcHJvdmlkZXIgPSAibXlzcWwiCiAgdXJsICAgICAgPSBlbnYoIkRBVEFCQVNFX1VSTCIpCn0KCm1vZGVsIFVzZXIgewogIGlkICAgIEludCAgICAgQGlkIEBkZWZhdWx0KGF1dG9pbmNyZW1lbnQoKSkKICBlbWFpbCBTdHJpbmcgIEB1bmlxdWUKICBuYW1lICBTdHJpbmc/Cn0K",
+  "inlineSchemaHash": "b4d3e25b6fded74f121084f94b055ac33c6b8e72447e1cadcb844d81a9c9080d"
 }
 config.dirname = '/'
 
