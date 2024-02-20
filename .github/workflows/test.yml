@@ -46,6 +46,9 @@ jobs:
       - name: Lint
         run: pnpm lint
 
+      - name: Prisma Validate
+        run: npx prisma validate
+
       - name: Build
         run: pnpm build
 
