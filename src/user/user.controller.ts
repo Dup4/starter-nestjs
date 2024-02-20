@@ -7,7 +7,7 @@ import {
   Post,
   Put,
 } from "@nestjs/common";
-import { User as UserModel } from "../../prisma/client";
+import { User as UserModel } from "@prisma/client";
 import { UserService } from "./user.service";
 
 @Controller()
