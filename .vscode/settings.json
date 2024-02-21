@@ -54,6 +54,5 @@
     "unplugin",
     "vite",
     "vitest"
-  ],
-  "debug.javascript.resourceRequestOptions": {}
+  ]
 }
