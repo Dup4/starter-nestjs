@@ -23,10 +23,17 @@ jobs:
       fail-fast: false
 
     services:
-      mysql:
+      redis:
         image: redis:7.0
         ports:
           - 6379:6379
+      mariadb:
+        image: mariadb:11.3
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: starter-nestjs
+        ports:
+          - 3306:3306
 
     steps:
       - uses: actions/checkout@v4
@@ -41,7 +48,9 @@ jobs:
           cache: pnpm
 
       - name: Install
-        run: pnpm install
+        run: |
+         pnpm install
+         cp .env.ci .env
 
       - name: Lint
         run: pnpm lint
