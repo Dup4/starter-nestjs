@@ -76,5 +76,6 @@ jobs:
 
       - name: e2e Test
         run: |
-          ls | grep env
+          ls -lhrta  | grep env
+          cat .env
           pnpm test:e2e
