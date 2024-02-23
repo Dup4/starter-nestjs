@@ -78,4 +78,5 @@ jobs:
         run: |
           ls -lhrta  | grep env
           cat .env
+          npx prisma validate
           pnpm test:e2e
