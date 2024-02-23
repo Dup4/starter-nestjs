@@ -76,7 +76,5 @@ jobs:
 
       - name: e2e Test
         run: |
-          ls -lhrta  | grep env
-          cat .env
-          npx prisma validate
+          cp .env ./e2e/.env
           pnpm test:e2e
