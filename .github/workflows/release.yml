@@ -68,7 +68,6 @@ jobs:
         env:
           image_name: starter-nestjs
           tag: ${{ steps.get-version-id.outputs.version-id }}
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         with:
           context: ./
           file: ./docker/Dockerfile
