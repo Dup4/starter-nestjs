@@ -49,8 +49,8 @@ jobs:
 
       - name: Install
         run: |
-         pnpm install
-         cp .env.ci .env
+          pnpm install
+          cp .env.ci .env
 
       - name: Lint
         run: pnpm lint

@@ -23,7 +23,8 @@
     "json",
     "jsonc",
     "yaml",
-    "toml"
+    "toml",
+    "github-actions-workflow"
   ],
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
