@@ -11,6 +11,7 @@ on:
 
 env:
   STARTER_NESTJS_CONFIG_FILE: ./config-example.yaml
+  DATABASE_URL: "mysql://root:root@127.0.0.1:3306/starter-nestjs"
 
 jobs:
   test:
@@ -50,7 +51,6 @@ jobs:
       - name: Install
         run: |
           pnpm install
-          cp .env.ci .env
 
       - name: Lint
         run: pnpm lint
@@ -76,5 +76,4 @@ jobs:
 
       - name: e2e Test
         run: |
-          cp .env ./e2e/.env
           pnpm test:e2e
