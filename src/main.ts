@@ -8,7 +8,7 @@ import urlJoin from "url-join";
 
 import { NestFactory } from "@nestjs/core";
 import { NestExpressApplication } from "@nestjs/platform-express";
-import { Logger } from "@nestjs/common";
+import { Logger, ValidationPipe } from "@nestjs/common";
 import {
 
   DocumentBuilder,
@@ -104,6 +104,18 @@ async function startApp(
 
 async function bootstrap() {
   const [configService, app] = await initialize();
+  app.useGlobalPipes(new ValidationPipe({
+    whitelist: true,
+    transform: true,
+  }));
+  const config = new DocumentBuilder()
+    .setTitle("Example API")
+    .setDescription("The API description")
+    .setVersion("1.0")
+    .addTag("tag")
+    .build();
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup("api", app, document);
   const clusterService = app.get(ClusterService);
   await clusterService.initialization(
     async () => await startApp(configService, app),

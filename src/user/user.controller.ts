@@ -8,8 +8,12 @@ import {
   Put,
 } from "@nestjs/common";
 import { User as UserModel } from "@prisma/client";
-import { UserService } from "./user.service";
+import { ApiTags } from "@nestjs/swagger";
 
+import { UserService } from "./user.service";
+import { CreateUserDto, UpdateUserDto } from "./dto/user-response.dto";
+
+@ApiTags("User")
 @Controller()
 export class UserController {
   constructor(
@@ -17,10 +21,8 @@ export class UserController {
   ) { }
 
   @Post("user")
-  async signupUser(
-    @Body() userData: { name?: string; email: string },
-  ): Promise<UserModel> {
-    return this.userService.createUser(userData);
+  async createUser(@Body() createUserDto: CreateUserDto): Promise<UserModel> {
+    return this.userService.createUser(createUserDto);
   }
 
   @Get("user/:id")
@@ -41,7 +43,7 @@ export class UserController {
   @Put("user/:id")
   async updateUser(
     @Param("id") id: string,
-    @Body() userData: { name?: string; email?: string },
+    @Body() userData: UpdateUserDto,
   ): Promise<UserModel> {
     return this.userService.updateUser({
       where: { id: Number(id) },
