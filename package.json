@@ -42,7 +42,8 @@
     "format": "run-p format:*",
     "format:eslint": "eslint --fix .",
     "prepublishOnly": "npm run build",
-    "release": "bumpp --commit --push --tag && npm publish"
+    "release": "bumpp --commit --push --tag && npm publish",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@nestjs/common": "^10.3.1",
@@ -51,6 +52,7 @@
     "@nestjs/platform-express": "^10.3.1",
     "@nestjs/swagger": "^7.2.0",
     "@nestjs/terminus": "^10.2.1",
+    "@prisma/client": "5.9.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
     "dayjs": "^1.11.10",
@@ -89,6 +91,7 @@
     "jest": "^29.7.0",
     "npm-run-all": "^4.1.5",
     "pnpm": "^8.15.0",
+    "prisma": "^5.9.1",
     "rimraf": "^5.0.5",
     "supertest": "^6.3.4",
     "taze": "^0.13.1",

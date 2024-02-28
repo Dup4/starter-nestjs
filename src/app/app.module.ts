@@ -3,6 +3,10 @@ import process from "node:process";
 import { Module } from "@nestjs/common";
 import { DevtoolsModule } from "@nestjs/devtools-integration";
 
+import { PrismaService } from "../prisma.service";
+import { UserService } from "../user/user.service";
+
+import { UserController } from "../user/user.controller";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 
@@ -20,7 +24,7 @@ import { HealthModule } from "@/health/health.module";
       port: 3013,
     }),
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, UserController],
+  providers: [AppService, UserService, PrismaService],
 })
-export class AppModule {}
+export class AppModule { }
