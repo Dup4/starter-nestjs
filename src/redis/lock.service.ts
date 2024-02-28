@@ -11,8 +11,8 @@ import { RedisService } from "@/redis/redis.service";
 
 // Refer to scripts/lock.lua and scripts/read-write-lock.lua for details
 interface RedisWithLock extends Redis {
-  callLock(...args: (string | number)[]): Promise<boolean>;
-  callReadWriteLock(...args: (string | number)[]): Promise<boolean>;
+  callLock: (...args: (string | number)[]) => Promise<boolean>;
+  callReadWriteLock: (...args: (string | number)[]) => Promise<boolean>;
 }
 
 const LOCK_TTL = 5000;
