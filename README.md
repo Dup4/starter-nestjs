@@ -5,6 +5,14 @@
 [![GitHub release](https://img.shields.io/github/release/Dup4/starter-nestjs.svg)](https://GitHub.com/Dup4/starter-nestjs/releases/)
 [![License][license-image-mit]][license-link-mit]
 
+## Development
+
+```bash
+docker-compose up -d
+
+pnpm dev
+```
+
 ## Usage
 
 ### Docker
