@@ -1,6 +1,7 @@
 import cluster from "node:cluster";
 import util from "node:util";
 import process from "node:process";
+import * as dotenv from "dotenv";
 
 import { json } from "express";
 import getGitRepoInfo from "git-repo-info";
@@ -10,7 +11,6 @@ import { NestFactory } from "@nestjs/core";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Logger, ValidationPipe } from "@nestjs/common";
 import {
-
   DocumentBuilder,
   SwaggerDocumentOptions,
   SwaggerModule,
@@ -22,6 +22,7 @@ import { AppModule } from "@/app/app.module";
 import { ConfigService } from "@/config/config.service";
 import { ClusterService } from "@/cluster/cluster.service";
 
+dotenv.config();
 const appGitRepoInfo = getGitRepoInfo();
 const logger = new Logger("Bootstrap");
 
