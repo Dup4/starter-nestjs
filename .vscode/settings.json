@@ -24,7 +24,8 @@
     "jsonc",
     "yaml",
     "toml",
-    "github-actions-workflow"
+    "github-actions-workflow",
+    "dockercompose"
   ],
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
